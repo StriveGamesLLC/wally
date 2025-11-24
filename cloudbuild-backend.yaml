@@ -28,3 +28,6 @@ steps:
 timeout: 900s
 options:
  machineType: 'E2_HIGHCPU_8'
+ default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
+
+logging: CLOUD_LOGGING_ONLY
