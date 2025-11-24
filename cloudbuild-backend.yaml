@@ -1,7 +1,7 @@
 steps:
   # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/[YOUR-GCP-PROJECT-NAME]/wally-backend:$COMMIT_SHA', '-f', 'wally-registry-backend/Dockerfile', '.']
+    args: ['build', '-t', 'gcr.io/aquabyte-409714/wally-backend:$COMMIT_SHA', '-f', 'wally-registry-backend/Dockerfile', '.']
 
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
@@ -15,7 +15,7 @@ steps:
         "deploy",
         "wally-backend",
         "--image",
-        "gcr.io/[YOUR-GCP-PROJECT-NAME]/wally-backend:$COMMIT_SHA",
+        "gcr.io/aquabyte-409714/wally-backend:$COMMIT_SHA",
         "--region",
         "us-central1",
         "--platform",
