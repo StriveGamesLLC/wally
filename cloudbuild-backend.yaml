@@ -1,7 +1,6 @@
 steps:
-  # Build container inside the backend folder
   - name: 'gcr.io/cloud-builders/docker'
-    dir: 'strive-wally-registry-backend'
+    dir: 'wally-registry-backend'
     args:
       [
         'build',
@@ -10,7 +9,6 @@ steps:
         '.'
       ]
 
-  # Push the container image
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
@@ -18,7 +16,6 @@ steps:
         'gcr.io/aquabyte-409714/strive-wally-registry-backend:$COMMIT_SHA'
       ]
 
-  # Deploy to Cloud Run
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       [
@@ -35,7 +32,6 @@ steps:
       ]
 
 options:
-  machineType: 'E2_HIGHCPU_8'
   default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
 
 timeout: 900s
